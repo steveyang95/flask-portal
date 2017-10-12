@@ -1,0 +1,18 @@
+<html>
+
+  <head>
+    <title>Nubeva Portal</title>
+  </head>
+
+  <body>
+    <h1>Welcome to the portal!</h1>
+    <p>Please login to access the portal.</p>
+    <img src="{{url_for('static', filename='nubeva_logo.jpg')}}" alt="Nubeva" />
+  </body>
+
+  <body>
+    <p><a href="{{ url_for('site.login') }}">Login</a></p>
+    <!--<p><a href="{{ url_for('site.oauth2callback') }}">Oauth2Callback</a></p>-->
+  </body>
+
+</html>

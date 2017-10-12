@@ -1,0 +1,26 @@
+<html>
+
+  <head>
+    <title>DynamoDB Tables</title>
+    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+  </head>
+
+  <body>
+    <h1>Here are the available tables that you can interact with.</h1>
+  </body>
+
+  <ul>
+    {% for table in tables %}
+      <li><a href="{{ url_for('{}.create_delete_requests'.format(g.url_prefix), table=table) }}">{{ table }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <body>
+    <p>
+      <a href="{{ url_for('site.portal') }}">Portal</a>
+      &nbsp;
+      <a href="{{ url_for('site.logout') }}">Logout</a>
+    </p>
+  </body>
+
+</html>

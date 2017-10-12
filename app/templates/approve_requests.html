@@ -1,0 +1,47 @@
+<html>
+
+  <head>
+    <title>Approve Requests</title>
+    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+  </head>
+
+  <body>
+    <h1>Here are all requests made.</h1>
+
+    {% if entries %}
+      <p>Please select the requests that you would like to approve of.</p>
+    {% else %}
+      <p>No requests in the queue.</p>
+    {% endif %}
+  </body>
+
+  <body>
+
+  </body>
+
+  <form method="POST">
+    <ul class="checkbox">
+      {% for entry in entries %}
+        {% for attribute in entry[1] %}
+          <li>
+            <input type="checkbox" name="cbentry" id="{{ 'admincb{}'.format(loop.index) }}" value="{{ (entry[0], attribute) }}" />
+            <label for="{{ 'admincb{}'.format(loop.index) }}">{{ entry[0] }} | {{ attribute }}</label>
+            <!--{{ entry[0] }} | {{ attribute }}-->
+          </li>
+        {% endfor %}
+      {% endfor %}
+    </ul>
+    {% if entries %}
+      <input type="submit" value="Approve Requests">
+    {% endif %}
+  </form>
+
+  <body>
+    <p>
+      <a href="{{ url_for('site.portal') }}">Portal</a>
+      &nbsp;
+      <a href="{{ url_for('site.logout') }}">Logout</a>
+    </p>
+  </body>
+
+</html>

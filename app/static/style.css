@@ -1,0 +1,51 @@
+ul.subidcheckbox  {
+  margin: 0;
+  padding: 0;
+  margin-left: 20px;
+  list-style: none;
+}
+
+ul.subidcheckbox li input {
+  margin-right: .25em;
+}
+
+ul.subidcheckbox li {
+  border: 1px transparent solid;
+  display:inline-block;
+  width:12em;
+}
+
+ul.subidcheckbox li label {
+  margin-left: ;
+}
+ul.subidcheckbox li:hover,
+ul.subidcheckbox li.focus  {
+  background-color: #F0F8FF;
+  border: 1px gray solid;
+  width: 12em;
+}
+
+ul.checkbox  {
+  margin: 0;
+  padding: 0;
+  margin-left: 20px;
+  list-style: none;
+}
+
+ul.checkbox li input {
+  margin-right: .25em;
+}
+
+ul.checkbox li {
+  border: 1px transparent solid;
+}
+
+ul.checkbox li label {
+  margin-left: ;
+}
+ul.checkbox li:hover,
+ul.checkbox li.focus  {
+  background-color: #F0F8FF;
+  border: 1px gray solid;
+}
+

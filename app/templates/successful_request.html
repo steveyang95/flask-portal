@@ -1,0 +1,49 @@
+<html>
+
+  <head>
+    <title>Requests</title>
+  </head>
+
+  <body>
+    <h1>Thanks!</h1>
+    <p>Below are details on your submission.</p>
+  </body>
+
+  {% if successful_requests %}
+    <h3>Successful Requests</h3>
+    <ul>
+      {% for request in successful_requests %}
+        <li>{{ request }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if existing_requests %}
+    <h3>Existing Requests</h3>
+    <ul>
+      {% for request in existing_requests %}
+        {% for key, val in request.iteritems() %}
+        <p><strong>{{ key }}</strong> already made a delete request for <strong>{{ val.split('|')[-1] }}</strong></p>
+        {% endfor %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if failed_requests %}
+    <h3>Failed Requests</h3>
+    <ul>
+      {% for request in failed_requests %}
+        <li>{{ request }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <body>
+    <p>
+      <a href="{{ url_for('site.portal') }}">Portal</a>
+      &nbsp;
+      <a href="{{ url_for('site.logout') }}">Logout</a>
+    </p>
+  </body>
+
+</html>

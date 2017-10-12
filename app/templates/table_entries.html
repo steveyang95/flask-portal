@@ -1,0 +1,25 @@
+<html>
+
+  <head>
+    <title>{{ table }} Entries</title>
+  </head>
+
+  <body>
+    <h1>Here are the entries in the database.</h1>
+  </body>
+
+  <ul>
+    {% for entry in entries %}
+      <li>{{ entry }}</li>
+    {% endfor %}
+  </ul>
+
+  <body>
+    <p>
+      <a href="{{ url_for('site.portal') }}">Portal</a>
+      &nbsp;
+      <a href="{{ url_for('site.logout') }}">Logout</a>
+    </p>
+  </body>
+
+</html>

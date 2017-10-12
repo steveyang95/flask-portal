@@ -1,0 +1,56 @@
+<html>
+
+  <head>
+    <title>Delete Requests</title>
+    <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+  </head>
+
+  <body>
+    {% if is_admin %}
+      <h1>Here are all requests made.</h1>
+    {% else %}
+      <h1>Here are {{ user_email }} requests made.</h1>
+    {% endif %}
+
+    {% if entries %}
+      <p>If you would like to remove any requests below, please select the desired requests and click "Remove Requests".</p>
+    {% else %}
+      <p>No requests in the queue. You can go back to the Portal and Make a Delete Request.</p>
+    {% endif %}
+  </body>
+
+  <form method="POST">
+    <ul class="checkbox">
+      {% if is_admin %}
+        {% for entry in entries %}
+          {% for attribute in entry[1] %}
+            <li>
+              <input type="checkbox" name="cbentry" id="{{ 'admincb{}'.format(loop.index) }}" value="{{ (entry[0], attribute) }}" />
+              <label for="{{ 'admincb{}'.format(loop.index) }}">{{ entry[0] }} | {{ attribute }}</label>
+              <!--{{ entry[0] }} | {{ attribute }}-->
+            </li>
+          {% endfor %}
+        {% endfor %}
+      {% else %}
+        {% for entry in entries %}
+          <li>
+            <input type="checkbox" name="cbentry" id="{{ 'usercb{}'.format(loop.index) }}" value="{{ entry }}" />
+            <label for="{{ 'usercb{}'.format(loop.index) }}">{{ entry }}</label>
+          </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+    {% if entries %}
+      <input type="submit" value="Remove Requests">
+    {% endif %}
+  </form>
+
+  <body>
+    <p>
+      <a href="{{ url_for('site.portal') }}">Portal</a>
+      &nbsp;
+      <a href="{{ url_for('site.logout') }}">Logout</a>
+    </p>
+  </body>
+
+</html>

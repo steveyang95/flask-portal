@@ -1,0 +1,25 @@
+<html>
+
+  <head>
+    <title>Nubeva Admin Portal</title>
+  </head>
+
+  <body>
+    <h1>Welcome to the Admin portal!</h1>
+    <img src="{{url_for('static', filename='nubeva_logo.jpg')}}" alt="Nubeva" />
+    <p>What would you like to do today?</p>
+  </body>
+
+  <body>
+    <p><a href="{{ url_for('admin.tables_index') }}">List Tables</a></p>
+    <p><a href="{{ url_for('admin.tables_index') }}">List Entries</a></p>
+    <p><a href="{{ url_for('admin.get_delete_requests') }}">List Requests</a></p>
+    <p><a href="{{ url_for('admin.approve_requests') }}">Approve Requests</a></p>
+    <p><a href="{{ url_for('admin.create_delete_requests_index') }}">Make a Delete Request</a></p>
+  </body>
+
+  <body>
+    <p><a href="{{ url_for('site.logout') }}">Logout</a></p>
+  </body>
+
+</html>
