@@ -30,7 +30,7 @@ PyJWT==1.5.2
 pymongo==3.4.0
 PyNaCl==1.1.2
 pyrad==2.1
-PyYAML==3.12
+PyYAML==5.4
 requests==2.18.1
 requests-oauthlib==0.8.0
 rsa==3.4.2
